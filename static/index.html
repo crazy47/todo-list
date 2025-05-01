@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/index.css">
+    <title>Minimalist To-Do List</title>
+</head>
+<body>
+    <h1>TODO LIST</h1>
+    <div class="input-container">
+        <input type="text" id="task-input" placeholder="Add a new task...">
+        <button id="add-button">Add</button>
+    </div>
+    <div class="filters">
+        <button class="filter-button active" data-filter="all">All</button>
+        <button class="filter-button" data-filter="active">Active</button>
+        <button class="filter-button" data-filter="completed">Completed</button>
+    </div>
+    <button class="clear-button" id="clear-completed">Clear completed</button>
+
+    <ul class="todo-list" id="todo-list">
+        <!-- Tasks will be added here -->
+    </ul>
+    <div class="empty-state" id="empty-state">No tasks added yet</div>
+    <div class="todo-count" id="todo-count"></div>
+
+    <script src="script/index.js">
+        
+    </script>
+</body>
+</html>
