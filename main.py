@@ -39,7 +39,13 @@ def init_google_sheets():
         
     try:
         scopes = ["https://www.googleapis.com/auth/spreadsheets"]
-        creds = Credentials.from_service_account_file("credentials.json", scopes=scopes)
+        # Load credentials from environment variable
+        credentials_json = os.getenv('GOOGLE_CREDENTIALS')
+        if not credentials_json:
+            print("Google Sheets error: GOOGLE_CREDENTIALS environment variable not set")
+            return None
+        credentials_dict = json.loads(credentials_json)
+        creds = Credentials.from_service_account_info(credentials_dict, scopes=scopes)
         client = gspread.authorize(creds)
         sheet_id = "1pcCUCjhsfqdM_e4AbojUaNSpWUkT7FtxXkkan79Q_F4"
         sheet = client.open_by_key(sheet_id)
